@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Counter_Lekhkun_Andrii.ViewModels"
+             x:Class="Counter_Lekhkun_Andrii.Views.CounterPage"
+             Title="Add new counter">
+    <ContentPage.BindingContext>
+        <viewModels:CounterViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10"
+                         MaximumWidthRequest="800"
+                         MinimumWidthRequest="500">
+        <Label Text="Counter's name:"
+               FontSize="30"
+               TextColor="White"/>
+        <Entry Text="{Binding Name}"
+               Keyboard="Text"
+               Placeholder="Enter a name"/>
+        <Label Text="Counter's count:"
+               FontSize="30"
+               TextColor="White"/>
+        <Entry Text="{Binding Count}"
+               Keyboard="Numeric"
+               Placeholder="Enter a count"/>
+        <Label Text="Counter's color:"
+               FontSize="30"
+               TextColor="White"/>
+        <Entry Text="{Binding Color}"
+               Keyboard="Numeric"
+               Placeholder="Enter a color for count"/>
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="20"
+              HorizontalOptions="Center"
+              WidthRequest="600">
+            <Button Grid.Column="0"
+                    Text="Save"
+                    Command="{Binding SaveCommand}" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Command="{Binding DeleteCommand}" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
